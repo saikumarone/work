@@ -1,0 +1,24 @@
+
+
+grep -Fxv -f  target/check_constraints.txt source/check_constraints.txt >/tmp/check_constraints.txt
+grep -Fxv -f  target/columns.txt source/columns.txt >/tmp/columns.txt
+grep -Fxv -f  target/db_name.txt source/db_name.txt >/tmp/db_name.txt
+grep -Fxv -f  target/extensions.txt source/extensions.txt >/tmp/extensions.txt
+grep -Fxv -f  target/foreign_keys.txt source/foreign_keys.txt >/tmp/foreign_keys.txt
+grep -Fxv -f  target/functions.txt source/functions.txt >/tmp/functions.txt
+grep -Fxv -f  target/indexes.txt source/indexes.txt >/tmp/indexes.txt
+grep -Fxv -f  target/invalid_constraints.txt source/invalid_constraints.txt >/tmp/invalid_constraints.txt
+grep -Fxv -f  target/invalid_indexes.txt source/invalid_indexes.txt >/tmp/invalid_indexes.txt
+grep -Fxv -f  target/matviews.txt source/matviews.txt >/tmp/matviews.txt
+grep -Fxv -f  target/object_counts.txt source/object_counts.txt >/tmp/object_counts.txt
+grep -Fxv -f  target/partitions.txt source/partitions.txt >/tmp/partitions.txt
+grep -Fxv -f  target/primary_keys.txt source/primary_keys.txt >/tmp/primary_keys.txt
+grep -Fxv -f  target/roles.txt source/roles.txt >/tmp/roles.txt
+grep -Fxv -f  target/schemas.txt  source/schemas.txt >/tmp/schemas.txt
+grep -Fxv -f  target/sequences.txt  source/sequences.txt >/tmp/sequences.txt
+grep -Fxv -f  target/tables.txt  source/tables.txt >/tmp/tables.txt
+grep -Fxv -f  target/triggers.txt  source/triggers.txt >/tmp/triggers.txt
+grep -Fxv -f  target/unique_constraints.txt  source/unique_constraints.txt >/tmp/unique_constrstains.txt
+grep -Fxv -f  target/views.txt  source/views.txt >/tmp/views.txt
+
+for file in *.txt; do echo "================$file=============="; cat "$file"; echo "======================END===================="; done >report.log
