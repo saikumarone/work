@@ -64,3 +64,32 @@ research.quote_snap_credit
 research.credit_vol                
 xccy.ubs_stir_analytics        
 
+
++ host_dir=outputs/gcpapp29lhc
++ mkdir -p outputs/gcpapp29lhc
++ ssh -p 22 -o BatchMode=yes -o PreferredAuthentications=publickey -o PubkeyAuthentication=yes -o StrictHostKeyChecking=accept-new -o ControlMaster=auto -o ControlPersist=60s -o ServerAliveInterval=30 -o ServerAliveCountMax=4 sadepollutp_gcp@gcpapp29lhc 'sudo -u postgres bash -lc '\''DB_NAME="$DB_NAME" EXCLUDE_LIST="$EXCLUDE_LIST" bash -s'\''' DB_NAME=gcppsg1 'EXCLUDE_LIST=research.quote_snap
+market_builder_2.volatility_surface
+market_builder_2.bond_market_built_btt
+market_data.snap
+risk.riskbeta_reports
+research.daily
+_timescaledb_internal._compressed_hypertable_16
+ticks.trade
+research.quote_snap_credit
+research.credit_vol
+xccy.ubs_stir_analytics'
++ tee outputs/gcpapp29lhc/counts.txt
+bash: line 18: t: unbound variable
+bash: line 2: market_builder_2.volatility_surface: command not found
+bash: line 3: market_builder_2.bond_market_built_btt: command not found
+bash: line 4: market_data.snap: command not found
+bash: line 5: risk.riskbeta_reports: command not found
+bash: line 6: research.daily: command not found
+bash: line 7: _timescaledb_internal._compressed_hypertable_16: command not found
+bash: line 8: ticks.trade: command not found
+bash: line 9: research.quote_snap_credit: command not found
+bash: line 10: research.credit_vol: command not found
+bash: line 11: xccy.ubs_stir_analytics: command not found
++ echo 'ERROR: Remote execution failed on gcpapp29lhc'
+ERROR: Remote execution failed on gcpapp29lhc
++ exit 1
