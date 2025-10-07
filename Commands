@@ -1,0 +1,1 @@
+HOST="your-hostname-or-user@hostname"; DB="postgres"; mkdir -p "$HOST"; for f in /sql_scripts/*.sql; do b="$(basename "$f" .sql)"; { echo "=========== $b ==========="; ssh -o BatchMode=yes "$HOST" "sudo -u postgres -i psql -v ON_ERROR_STOP=1 -d \"$DB\" -f -" < "$f"; } > "$HOST/$b.log" 2>&1; done
