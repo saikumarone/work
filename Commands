@@ -12,3 +12,18 @@ for f in /sql_scripts/*.sql; do b="$(basename "$f" .sql)"; { \
   { printf "\\set include_schemas %s\n" "$INCLUDE_SCHEMAS"; cat "$f"; } | \
   ssh -o BatchMode=yes "$HOST" "sudo -u postgres -i psql -v ON_ERROR_STOP=1 -d \"$DB\" -f -"; \
 } > "$HOST/$b.log" 2>&1; done
+
+
+
+
+
+
+HOST="user@remotehost"; DB="postgres"; shopt -s nullglob; mkdir -p "$HOST"; \
+INCLUDE_SCHEMAS_RAW="$(ssh -o BatchMode=yes "$HOST" "sudo -u postgres -i psql -At -d \"$DB\" -c \"SELECT COALESCE(string_agg(quote_literal(nspname), ','), '') FROM pg_namespace WHERE nspname NOT IN ('pg_catalog','information_schema') AND nspname NOT LIKE 'pg_toast%%' AND nspname NOT LIKE 'pg_temp%%';\"")"; \
+[ -z "$INCLUDE_SCHEMAS_RAW" ] && INCLUDE_SCHEMAS_RAW="'public'"; \
+INCLUDE_SCHEMAS_ESCAPED="$(printf "%s" "$INCLUDE_SCHEMAS_RAW" | sed "s/'/''/g")"; \
+for f in /sql_scripts/*.sql; do b="$(basename "$f" .sql)"; { \
+  echo "=========== $b ==========="; \
+  { printf "\\set include_schemas '%s'\n" "$INCLUDE_SCHEMAS_ESCAPED"; cat "$f"; } | \
+  ssh -o BatchMode=yes "$HOST" "sudo -u postgres -i psql -v ON_ERROR_STOP=1 -d \"$DB\" -f -"; \
+} > "$HOST/$b.log" 2>&1; done
