@@ -50,3 +50,17 @@ JOIN relevant_schemas s ON s.namespace_oid = con.connamespace
 LEFT JOIN pg_class rel ON rel.oid = con.conrelid
 WHERE con.contype = 'c'
 ORDER BY 1;
+
+
+research.quote_snap 
+market_builder_2.volatility_surface
+market_builder_2.bond_market_built_btt
+market_data.snap
+risk.riskbeta_reports
+research.daily                     
+_timescaledb_internal._compressed_hypertable_16 
+ticks.trade                     
+research.quote_snap_credit         
+research.credit_vol                
+xccy.ubs_stir_analytics        
+
