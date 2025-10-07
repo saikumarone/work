@@ -30,31 +30,20 @@ for f in /sql_scripts/*.sql; do b="$(basename "$f" .sql)"; { \
 
 
 
-
-postgres=# WITH relevant_schemas AS (
-    SELECT n.oid AS namespace_oid, n.nspname
-    FROM pg_namespace n
-    WHERE nspname IN (:include_schemas)
+Check constraint
+-----------------
+WITH relevant_schemas AS (
+  SELECT n.oid AS namespace_oid, n.nspname
+  FROM pg_namespace n
+  WHERE n.nspname IN ('audit')
 )
-SELECT s.nspname||'.'||coalesce(rel.relname,'?')||'.'||con.contype||'.'||con.conname as check_cons
+SELECT
+  s.nspname::text
+  || '.' || coalesce(rel.relname::text, '?')
+  || '.' || con.contype::text
+  || '.' || con.conname::text AS check_cons
 FROM pg_constraint con
- INNER JOIN relevant_schemas s ON s.namespace_oid = con.connamespace
- LEFT OUTER JOIN pg_catalog.pg_class rel ON rel.oid = con.conrelid
-WHERE con.contype='c'
-order by 1;
-^C
-postgres=# WITH relevant_schemas AS (
-    SELECT n.oid AS namespace_oid, n.nspname
-    FROM pg_namespace n
-    WHERE nspname IN ('audit')
-)
-SELECT s.nspname||'.'||coalesce(rel.relname,'?')||'.'||con.contype||'.'||con.conname as check_cons
-FROM pg_constraint con
- INNER JOIN relevant_schemas s ON s.namespace_oid = con.connamespace
- LEFT OUTER JOIN pg_catalog.pg_class rel ON rel.oid = con.conrelid
-WHERE con.contype='c'
-order by 1;
-ERROR:  operator is not unique: text || "char"
-LINE 6: ...ECT s.nspname||'.'||coalesce(rel.relname,'?')||'.'||con.cont...
-                                                             ^
-HINT:  Could not choose a best candidate operator. You might need to add explicit type casts.
+JOIN relevant_schemas s ON s.namespace_oid = con.connamespace
+LEFT JOIN pg_catalog.pg_class rel ON rel.oid = con.conrelid
+WHERE con.contype = 'c'
+ORDER BY 1;
