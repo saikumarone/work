@@ -1,0 +1,118 @@
+================checkconstraint.log==============
+                               check_cons                               
+------------------------------------------------------------------------
+(10858 rows)
+======================END====================
+================columnorder.log==============
+ audit.hypertable_sizes. 001.table_schema
+ audit.hypertable_sizes. 002.table_name
+ audit.hypertable_sizes. 003.table_owner
+ audit.hypertable_sizes. 004.num_dimensions
+ audit.hypertable_sizes. 005.num_chunks
+ audit.hypertable_sizes. 006.table_size
+ audit.hypertable_sizes. 007.index_size
+ audit.hypertable_sizes. 008.toast_size
+ audit.hypertable_sizes. 009.total_size
+ public.pg_stat_statements. 003.queryid
+ public.pg_stat_statements. 004.query
+ public.pg_stat_statements. 005.calls
+ public.pg_stat_statements. 006.total_time
+ public.pg_stat_statements. 007.min_time
+ public.pg_stat_statements. 008.max_time
+ public.pg_stat_statements. 009.mean_time
+ public.pg_stat_statements. 010.stddev_time
+ public.pg_stat_statements. 011.rows
+ public.pg_stat_statements. 012.shared_blks_hit
+ public.pg_stat_statements. 013.shared_blks_read
+ public.pg_stat_statements. 014.shared_blks_dirtied
+ public.pg_stat_statements. 015.shared_blks_written
+ public.pg_stat_statements. 016.local_blks_hit
+ public.pg_stat_statements. 017.local_blks_read
+ public.pg_stat_statements. 018.local_blks_dirtied
+ public.pg_stat_statements. 019.local_blks_written
+ public.pg_stat_statements. 020.temp_blks_read
+ public.pg_stat_statements. 021.temp_blks_written
+ public.pg_stat_statements. 022.blk_read_time
+ public.pg_stat_statements. 023.blk_write_time
+ repack.tables. 012.create_table_1
+ repack.tables. 014.create_table_2
+ repack.tables. 015.copy_data
+ repack.tables. 016.alter_col_storage
+ repack.tables. 017.drop_columns
+ repack.tables. 018.delete_log
+ repack.tables. 019.lock_table
+ repack.tables. 020.ckey
+ repack.tables. 021.sql_peek
+ repack.tables. 022.sql_insert
+ repack.tables. 023.sql_delete
+ repack.tables. 024.sql_update
+ repack.tables. 025.sql_pop
+(190457 rows)
+======================END====================
+================dbsize.log==============
+======================END====================
+================extension.log==============
+======================END====================
+================fkeyconstraint.log==============
+(714 rows)
+======================END====================
+================indexlist.log==============
+(26048 rows)
+======================END====================
+================invalid_cons.log==============
+======================END====================
+================invalid_index.log==============
+======================END====================
+================materialized_views.log==============
+======================END====================
+================objectsummary.log==============
+ Schema count                   →  |   55
+ View count                     →  |  207
+ Table count                    →  | 1947
+ Index count                    →  | 2603
+ Partition count                →  | 2162
+ Trigger count                  →  | 8687
+ Sequence count                 →  |  146
+ Primary Key count              →  | 4444
+ Foreign Key count              →  |  714
+ Unique Constraint count        →  |  100
+ Check Constraint count         →  | 1085
+ Column count                   →  | 1904
+======================END====================
+================partitions.log==============
+(21621 rows)
+======================END====================
+================primarykey_constraint.log==============
+(4444 rows)
+======================END====================
+================schema.log==============
+       schema_size       
+-------------------------
+(55 rows)
+======================END====================
+================sequences.log==============
+(126 rows)
+======================END====================
+================tables_list.log==============
+ audit.hypertable_sizes
+(20870 rows)
+======================END====================
+================triggers_list.log==============
+(8687 rows)
+======================END====================
+================udf_list.log==============
+======================END====================
+================unique_constraints.log==============
+                                                  unique_cons                                                  
+---------------------------------------------------------------------------------------------------------------
+(100 rows)
+======================END====================
+================users.log==============
+                role                 
+-------------------------------------
+(64 rows)
+======================END====================
+================views.log==============
+ audit.hypertable_sizes
+(207 rows)
+======================END====================

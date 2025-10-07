@@ -1,0 +1,66 @@
+================checkconstraint.log==============
+======================END====================
+================columnorder.log==============
+ public.pg_stat_statements. 003.queryid
+ public.pg_stat_statements. 004.query
+ public.pg_stat_statements. 005.calls
+ public.pg_stat_statements. 006.total_time
+ public.pg_stat_statements. 007.min_time
+ public.pg_stat_statements. 008.max_time
+ public.pg_stat_statements. 009.mean_time
+ public.pg_stat_statements. 010.stddev_time
+ public.pg_stat_statements. 011.rows
+ public.pg_stat_statements. 012.shared_blks_hit
+ public.pg_stat_statements. 013.shared_blks_read
+ public.pg_stat_statements. 014.shared_blks_dirtied
+ public.pg_stat_statements. 015.shared_blks_written
+ public.pg_stat_statements. 016.local_blks_hit
+ public.pg_stat_statements. 017.local_blks_read
+ public.pg_stat_statements. 018.local_blks_dirtied
+ public.pg_stat_statements. 019.local_blks_written
+ public.pg_stat_statements. 020.temp_blks_read
+ public.pg_stat_statements. 021.temp_blks_written
+ public.pg_stat_statements. 022.blk_read_time
+ public.pg_stat_statements. 023.blk_write_time
+(5701 rows)
+======================END====================
+================dbsize.log==============
+======================END====================
+================extension.log==============
+======================END====================
+================fkeyconstraint.log==============
+======================END====================
+================indexlist.log==============
+======================END====================
+================invalid_cons.log==============
+======================END====================
+================invalid_index.log==============
+======================END====================
+================materialized_views.log==============
+======================END====================
+================objectsummary.log==============
+ Column count                   →  | 5701
+======================END====================
+================partitions.log==============
+======================END====================
+================primarykey_constraint.log==============
+======================END====================
+================schema.log==============
+======================END====================
+================sequences.log==============
+======================END====================
+================tables_list.log==============
+======================END====================
+================triggers_list.log==============
+======================END====================
+================udf_list.log==============
+======================END====================
+================unique_constraints.log==============
+======================END====================
+================users.log==============
+                role                 
+-------------------------------------
+(64 rows)
+======================END====================
+================views.log==============
+======================END====================
