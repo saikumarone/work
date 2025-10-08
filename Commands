@@ -93,3 +93,18 @@ bash: line 11: xccy.ubs_stir_analytics: command not found
 + echo 'ERROR: Remote execution failed on gcpapp29lhc'
 ERROR: Remote execution failed on gcpapp29lhc
 + exit 1
+
+
+
+SELECT table_schema || '.' || table_name AS full_table_name
+FROM information_schema.tables
+WHERE table_type = 'BASE TABLE'
+  AND table_schema NOT IN ('pg_catalog', 'information_schema', 'pg_toast', 'pglogical')
+  AND (table_schema || '.' || table_name) NOT IN (
+      'public.audit_log',
+      'public.temp_data',
+      'market_data.snap'
+  )
+ORDER BY table_schema, table_name;
+
+
