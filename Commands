@@ -110,3 +110,17 @@ ORDER BY table_schema, table_name;
 
 awk -F'|' 'NR==FNR {a[$1]=$2; next} ($1 in a) && (a[$1] != $2) {print $1 "|" a[$1] "|" $2}' file1.txt file2.txt
 
+
+
+._timescaledb_catalog.chunk | 18883| 9669
+._timescaledb_catalog.chunk_constraint | 13646| 11298
+._timescaledb_catalog.compression_algorithm | 5| 8
+._timescaledb_catalog.compression_chunk_size | 8040| 0
+._timescaledb_catalog.dimension | 6| 5
+._timescaledb_catalog.dimension_slice | 10843| 9669
+._timescaledb_catalog.hypertable | 7| 5
+._timescaledb_internal.bgw_job_stat | 2| 1
+.research.twb_intraday_bonds_decom | 23850029395| 0
+
+
+
