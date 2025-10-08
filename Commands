@@ -108,3 +108,5 @@ WHERE table_type = 'BASE TABLE'
 ORDER BY table_schema, table_name;
 
 
+awk -F'|' 'NR==FNR {a[$1]=$2; next} ($1 in a) && (a[$1] != $2) {print $1 "|" a[$1] "|" $2}' file1.txt file2.txt
+
