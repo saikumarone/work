@@ -124,3 +124,13 @@ awk -F'|' 'NR==FNR {a[$1]=$2; next} ($1 in a) && (a[$1] != $2) {print $1 "|" a[$
 
 
 
+
+
+"timescaledb_information.compressed_chunk_stats
+ timescaledb_information.compressed_hypertable_stats
+ timescaledb_information.continuous_aggregate_stats
+ timescaledb_information.drop_chunks_policies
+ timescaledb_information.hypertable
+ timescaledb_information.license
+ timescaledb_information.policy_stats
+ timescaledb_information.reorder_policies"
