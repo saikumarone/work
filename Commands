@@ -1,6 +1,35 @@
 HOST="your-hostname-or-user@hostname"; DB="postgres"; mkdir -p "$HOST"; for f in /sql_scripts/*.sql; do b="$(basename "$f" .sql)"; { echo "=========== $b ==========="; ssh -o BatchMode=yes "$HOST" "sudo -u postgres -i psql -v ON_ERROR_STOP=1 -d \"$DB\" -f -" < "$f"; } > "$HOST/$b.log" 2>&1; done
 
+SELECT datname database_name,
+pid process_id,
+usename username,
+state state,
+wait_event_type wait_event_type,
+wait_event wait_event,
+now() - pg_stat_activity.query_start running_time,
+application_name app_name,
+query_start query_start_time,
+regexp_replace(query, E'[\\n\\r]+', ' ', 'g' ) query
+FROM pg_stat_activity
+WHERE 1 = 1
+AND TRUNC( EXTRACT(EPOCH FROM (now() - query_start)) / 60 ) >= :alert_level
+AND pid <> pg_backend_pid()
+AND state ='active'
+AND query NOT LIKE '%VACUUM%'
+AND query NOT LIKE 'START_REPLICATION SLOT%'
+ORDER BY 1,2
 
+SQL output: [ RECORD 1 ]---+--------------------------------------------------------------------------------------------------------------------------------
+database_name | gcppsg1
+process_id | 2990866
+username | research_read
+state | active
+wait_event_type | IO
+wait_event | DataFileRead
+running_time | 01:05:18.389169
+app_name |
+query_start_time | 2026-04-23 18:55:08.101512+00
+query | select distinct symbol from research.daily where source='velocity' and symbol like 'EUR_SWAP_ESTR1D%' order by symbol limit 120
 
 
 
